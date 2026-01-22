@@ -1,0 +1,15 @@
+[[IgnoredVulns]]
+id = "GHSA-v6h2-p8h4-qcjw"
+reason = "brace-expansion v2.0.1 - Dev dependency only (used by minimatch in ESLint/Jest). Not bundled in runtime dist/index.js"
+
+[[IgnoredVulns]]
+id = "GHSA-5j98-mcp5-4vw2"
+reason = "glob v10.3.15 and v11.0.3 - Dev dependency only (used by Jest, node-gyp, cacache). Not bundled in runtime dist/index.js"
+
+[[IgnoredVulns]]
+id = "GHSA-8qq5-rm4j-mr97"
+reason = "tar v6.2.1 - Dev dependency only (used by cacache and node-gyp). Not bundled in runtime dist/index.js"
+
+[[IgnoredVulns]]
+id = "GHSA-r6q2-hw4h-h46w"
+reason = "tar v6.2.1 - Dev dependency only (used by cacache and node-gyp). Not bundled in runtime dist/index.js"
