@@ -33,7 +33,7 @@
     "@eslint/compat": "^2.0.1",
     "@eslint/eslintrc": "^3.3.3",
     "@eslint/js": "^9.39.2",
-    "@types/node": "^25.0.10",
+    "@types/node": "^24.1.0",
     "@typescript-eslint/eslint-plugin": "^8.53.1",
     "@typescript-eslint/parser": "^8.53.1",
     "@vercel/ncc": "^0.38.4",
@@ -42,7 +42,7 @@
     "eslint-plugin-jest": "^29.12.1",
     "eslint-plugin-prettier": "^5.5.5",
     "jest": "^30.2.0",
-    "prettier": "^3.8.1",
+    "prettier": "^3.7.4",
     "ts-jest": "^29.4.6",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3"
