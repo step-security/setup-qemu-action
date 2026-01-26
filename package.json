@@ -27,7 +27,7 @@
   "dependencies": {
     "@actions/core": "^2.0.2",
     "@docker/actions-toolkit": "^0.75.0",
-    "axios": "^1.13.2"
+    "axios": "^1.13.3"
   },
   "devDependencies": {
     "@eslint/compat": "^2.0.1",
