@@ -15,6 +15,10 @@ inputs:
     description: 'Platforms to install (e.g. arm64,riscv64,arm)'
     default: 'all'
     required: false
+  reset:
+    description: 'Uninstall current emulators before installation'
+    default: 'false'
+    required: false
   cache-image:
     description: 'Cache binfmt image to GitHub Actions cache backend'
     default: 'true'
@@ -26,5 +30,5 @@ outputs:
 
 runs:
   using: 'node24'
-  main: 'dist/index.js'
-  post: 'dist/index.js'
+  main: 'dist/index.cjs'
+  post: 'dist/index.cjs'

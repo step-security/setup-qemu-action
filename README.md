@@ -32,8 +32,36 @@ jobs:
     steps:
       -
         name: Set up QEMU
-        uses: step-security/setup-qemu-action@v3
+        uses: step-security/setup-qemu-action@v4
 ```
+
+This action registers QEMU emulators with `binfmt_misc`, so later steps can run
+containers built for another architecture on the GitHub-hosted runner.
+
+```yaml
+name: run-cross-platform-container
+
+on:
+  workflow_dispatch:
+
+jobs:
+  qemu-example:
+    runs-on: ubuntu-latest
+    steps:
+      -
+        name: Set up QEMU
+        uses: docker/setup-qemu-action@v4
+      -
+        name: Run an arm64 container
+        run: docker run --rm --platform linux/arm64 alpine uname -m
+```
+
+The command above prints `aarch64` even though the job itself is running on
+`ubuntu-latest`.
+
+> [!TIP]
+> `setup-qemu-action` enables user-mode emulation for registered platforms. It
+> does not install `qemu-system-*` tools or add `qemu-*` binaries to your PATH.
 
 > [!NOTE]
 > If you are using [`step-security/setup-buildx-action`](https://github.com/step-security/setup-buildx-action),
@@ -42,10 +70,10 @@ jobs:
 > ```yaml
 >     -
 >       name: Set up QEMU
->       uses: step-security/setup-qemu-action@v3
+>       uses: step-security/setup-qemu-action@v4
 >     -
 >       name: Set up Docker Buildx
->       uses: step-security/setup-buildx-action@v3
+>       uses: step-security/setup-buildx-action@v4
 > ```
 
 ## Customizing
@@ -58,6 +86,7 @@ The following inputs can be used as `step.with` keys:
 |---------------|--------|-------------------------------------------------------------------------------|----------------------------------------------------|
 | `image`       | String | [`tonistiigi/binfmt:latest`](https://hub.docker.com/r/tonistiigi/binfmt/tags) | QEMU static binaries Docker image                  |
 | `platforms`   | String | `all`                                                                         | Platforms to install (e.g., `arm64,riscv64,arm`)   |
+| `reset`       | Bool   | `false`                                                                       | Uninstall current emulators before installation    |
 | `cache-image` | Bool   | `true`                                                                        | Cache binfmt image to GitHub Actions cache backend |
 
 ### outputs
