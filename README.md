@@ -32,7 +32,7 @@ jobs:
     steps:
       -
         name: Set up QEMU
-        uses: step-security/setup-qemu-action@v3
+        uses: step-security/setup-qemu-action@v4
 ```
 
 This action registers QEMU emulators with `binfmt_misc`, so later steps can run
@@ -70,10 +70,10 @@ The command above prints `aarch64` even though the job itself is running on
 > ```yaml
 >     -
 >       name: Set up QEMU
->       uses: step-security/setup-qemu-action@v3
+>       uses: step-security/setup-qemu-action@v4
 >     -
 >       name: Set up Docker Buildx
->       uses: step-security/setup-buildx-action@v3
+>       uses: step-security/setup-buildx-action@v4
 > ```
 
 ## Customizing
