@@ -9,6 +9,7 @@ buildSync({
   outfile: 'dist/index.cjs',
   sourcemap: true,
   minify: true,
+  keepNames: true,
   banner: {
     js: 'const __importMetaUrl = require("url").pathToFileURL(__filename).href;'
   },
