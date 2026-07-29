@@ -2,3 +2,7 @@
 [[IgnoredVulns]]
 id = "GHSA-g9mf-h72j-4rw9"
 reason = "undici v5.29.0 - No patch available for 5.x.x (requires upgrade to 6.23.0+). Low severity (CVSS 3.7). Difficult to exploit: requires compromising ACTIONS_CACHE_URL or GITHUB_SERVER_URL environment variables, which are controlled by GitHub Actions runtime. Impact limited to DoS of individual workflow runs."
+
+[[IgnoredVulns]]
+id = "GHSA-mh99-v99m-4gvg"
+reason = "brace-expansion (1.1.16 via @actions/glob, 2.1.2 via eslint/glob dev tooling). The 1.x chain (@docker/actions-toolkit → @actions/cache → @actions/glob → minimatch) is never invoked — this action only calls Docker operations and does not perform any glob matching against untrusted input. The 2.x instance is dev-only tooling (eslint, generate-license-file). No attack surface exists."
